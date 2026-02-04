@@ -181,4 +181,81 @@ export const translations = {
 } as const;
 
 export type Locale = keyof typeof translations;
-export type TranslationKeys = typeof translations.en;
+
+// Use a structural type that works for both languages
+export interface TranslationKeys {
+  nav: {
+    home: string;
+    work: string;
+    cv: string;
+    contact: string;
+  };
+  home: {
+    artistName: string;
+    title: string;
+    enterGallery: string;
+    tagline: string;
+  };
+  work: {
+    title: string;
+    seriesCount: string;
+    filters: {
+      all: string;
+      shadow: string;
+      light: string;
+      passage: string;
+      night: string;
+    };
+  };
+  series: {
+    backToWork: string;
+    bookView: string;
+    scrollView: string;
+  };
+  artwork: {
+    previous: string;
+    next: string;
+    backToSeries: string;
+    fullscreen: string;
+    exitFullscreen: string;
+  };
+  cv: {
+    title: string;
+    artistName: string;
+    about: string;
+    aboutText: readonly string[];
+    experience: string;
+    skills: string;
+    languages: string;
+    education: string;
+    downloadCV: string;
+  };
+  contact: {
+    title: string;
+    emailLabel: string;
+    copyEmail: string;
+    copied: string;
+    form: {
+      name: string;
+      email: string;
+      message: string;
+      send: string;
+    };
+    success: string;
+  };
+  notFound: {
+    title: string;
+    message: string;
+    backHome: string;
+  };
+  misc: {
+    loading: string;
+    soundOn: string;
+    soundOff: string;
+    passage: string;
+    shadow: string;
+    silence: string;
+    light: string;
+    night: string;
+  };
+}
