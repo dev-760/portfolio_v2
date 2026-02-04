@@ -6,10 +6,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Locale, getTranslations } from "@/lib/i18n";
 import { getSeriesBySlug, Artwork } from "@/data/artworks";
-import PassageMode from "@/components/PassageMode";
 import BookView from "@/components/BookView";
-
-type ViewMode = "passage" | "book";
 
 interface SeriesPageProps {
     params: Promise<{ locale: string; slug: string }>;
@@ -18,7 +15,6 @@ interface SeriesPageProps {
 export default function SeriesPage({ params }: SeriesPageProps) {
     const [locale, setLocale] = useState<Locale>("en");
     const [slug, setSlug] = useState<string>("");
-    const [viewMode, setViewMode] = useState<ViewMode>("passage");
     const router = useRouter();
 
     useEffect(() => {
@@ -72,36 +68,12 @@ export default function SeriesPage({ params }: SeriesPageProps) {
                 )}
             </header>
 
-            {/* View Mode Toggle */}
-            <nav className="series-nav">
-                <button
-                    className={`view-toggle ${viewMode === "passage" ? "active" : ""}`}
-                    onClick={() => setViewMode("passage")}
-                >
-                    {t.series.scrollView}
-                </button>
-                <button
-                    className={`view-toggle ${viewMode === "book" ? "active" : ""}`}
-                    onClick={() => setViewMode("book")}
-                >
-                    {t.series.bookView}
-                </button>
-            </nav>
-
-            {/* Content */}
-            {viewMode === "passage" ? (
-                <PassageMode
-                    artworks={currentSeries.artworks}
-                    locale={locale}
-                    onArtworkClick={handleArtworkClick}
-                />
-            ) : (
-                <BookView
-                    artworks={currentSeries.artworks}
-                    locale={locale}
-                    onArtworkClick={handleArtworkClick}
-                />
-            )}
+            {/* Book View - Only Mode */}
+            <BookView
+                artworks={currentSeries.artworks}
+                locale={locale}
+                onArtworkClick={handleArtworkClick}
+            />
         </div>
     );
 }

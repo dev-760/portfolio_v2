@@ -92,22 +92,25 @@ export default function WorkPage({ params }: WorkPageProps) {
                     {moodButtons.map((mood) => (
                         <button
                             key={mood.key}
-                            className={`mood-button ${activeMood === mood.key ? "active" : ""}`}
+                            className={`mood-button expand-letters ${activeMood === mood.key ? "active" : ""}`}
                             onClick={() => setActiveMood(mood.key)}
                         >
                             {mood.label}
                         </button>
                     ))}
                 </div>
+
+                <div className="elegant-separator" style={{ marginTop: "var(--space-3xl)" }} />
             </header>
 
             {/* Series Grid */}
             <div className="series-grid">
-                {filteredSeries.map((s) => (
+                {filteredSeries.map((s, index) => (
                     <Link
                         key={s.slug}
                         href={`/${locale}/series/${s.slug}`}
-                        className="series-card"
+                        className={`series-card stagger-item smooth-scale`}
+                        style={{ animationDelay: `${0.1 + index * 0.1}s` }}
                         onMouseEnter={() => setIsHoveringCard(true)}
                         onMouseLeave={() => setIsHoveringCard(false)}
                     >

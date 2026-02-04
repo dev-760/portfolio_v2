@@ -56,13 +56,14 @@ export default function ContactPage({ params }: ContactPageProps) {
         <div className="contact-page">
             <div className="contact-container">
                 <header className="contact-header">
-                    <h1 className="contact-title">{t.contact.title}</h1>
+                    <h1 className="contact-title elegant-underline">{t.contact.title}</h1>
+                    <div className="elegant-separator" />
                 </header>
 
                 {/* Contact Links */}
                 <div className="contact-links">
                     {/* Email */}
-                    <div className="contact-link-item">
+                    <div className="contact-link-item stagger-item gradient-border">
                         <div>
                             <p className="contact-link-label">{t.contact.emailLabel}</p>
                             <p className="contact-link-value">{cvData.email}</p>
@@ -80,8 +81,8 @@ export default function ContactPage({ params }: ContactPageProps) {
                         href={cvData.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="contact-link-item"
-                        style={{ textDecoration: "none" }}
+                        className="contact-link-item stagger-item gradient-border"
+                        style={{ textDecoration: "none", animationDelay: "0.2s" }}
                     >
                         <div>
                             <p className="contact-link-label">LinkedIn</p>

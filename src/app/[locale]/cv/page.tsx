@@ -105,13 +105,14 @@ export default function CVPage({ params }: CVPageProps) {
             <div className="cv-container">
                 {/* Header */}
                 <header className="cv-header">
-                    <h1 className="cv-title">{t.cv.title}</h1>
-                    <p className="cv-artist-name">{t.cv.artistName}</p>
+                    {t.cv.title && <h1 className="cv-title shimmer-text">{t.cv.title}</h1>}
+                    <p className="cv-artist-name elegant-underline">{t.cv.artistName}</p>
+                    <div className="elegant-separator" />
                 </header>
 
                 {/* Profile Section - Photo + About */}
-                <section className="profile-section">
-                    <div className="profile-photo-container">
+                <section className="profile-section gradient-border">
+                    <div className="profile-photo-container ambient-glow">
                         <Image
                             ref={photoRef}
                             src="/profile.jpg"
@@ -126,7 +127,7 @@ export default function CVPage({ params }: CVPageProps) {
 
                     <div className="profile-text-container">
                         <h2 className="about-heading">{t.cv.about}</h2>
-                        <div className="about-text">
+                        <div className="about-text artistic-quote">
                             {t.cv.aboutText.map((paragraph, index) => (
                                 <p key={index}>{paragraph}</p>
                             ))}

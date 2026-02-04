@@ -57,12 +57,15 @@ export default function HomePage({ params }: HomePageProps) {
 
                 {/* Content */}
                 <div className="hero-content">
-                    <h1 className="hero-name">{t.home.artistName}</h1>
+                    <h1 className="hero-name shimmer-text">{t.home.artistName}</h1>
                     <p className="hero-title">{t.home.title}</p>
+
+                    <div className="elegant-separator" />
+
                     <p className="hero-tagline">{t.home.tagline}</p>
 
                     <button
-                        className="hero-button"
+                        className="hero-button breathing-glow"
                         onClick={handleEnterGallery}
                         disabled={isTransitioning}
                     >

@@ -5,13 +5,13 @@ export const translations = {
     nav: {
       home: "الرئيسية",
       work: "الأعمال",
-      cv: "السيرة",
+      cv: "الممارسة الفنية",
       contact: "تواصل",
     },
     // Home page
     home: {
       artistName: "حسن كراسو",
-      title: "فنان بصري ومصور",
+      title: "فنان بصري",
       enterGallery: "ادخل المعرض",
       tagline: "العبور · الضوء والظل · الصمت",
     },
@@ -43,7 +43,7 @@ export const translations = {
     },
     // CV page
     cv: {
-      title: "السيرة الذاتية",
+      title: "بيان فني",
       artistName: "حسن كراسو",
       about: "نبذة عني",
       aboutText: [
@@ -94,13 +94,13 @@ export const translations = {
     nav: {
       home: "Home",
       work: "Work",
-      cv: "CV",
+      cv: "Practice",
       contact: "Contact",
     },
     // Home page
     home: {
       artistName: "Hassan Karasu",
-      title: "Visual Artist & Photographer",
+      title: "Visual Artist",
       enterGallery: "Enter the gallery",
       tagline: "Passage · Light and Shadow · Silence",
     },
@@ -132,7 +132,7 @@ export const translations = {
     },
     // CV page
     cv: {
-      title: "Curriculum Vitae",
+      title: "Statement",
       artistName: "Hassan Karasu",
       about: "About Me",
       aboutText: [

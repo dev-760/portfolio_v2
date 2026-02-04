@@ -23,10 +23,15 @@ export default async function LocaleLayout({
 
     return (
         <div dir={direction} lang={locale}>
+            {/* Cinematic overlays for artistic atmosphere */}
+            <div className="grain-overlay" aria-hidden="true" />
+            <div className="vignette-overlay" aria-hidden="true" />
+
             <Navigation locale={locale as Locale} />
-            <main>{children}</main>
+            <main className="page-enter">{children}</main>
             <footer className="footer">
-                <p className="footer-text">© 2024 Hassan Karasu</p>
+                <div className="elegant-separator" />
+                <p className="footer-text">© 2026 Hassan Karasu</p>
             </footer>
         </div>
     );
