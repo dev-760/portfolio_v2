@@ -556,19 +556,15 @@ a:focus {
 .hero-gradient-overlay {
   position: absolute;
   inset: 0;
-  background: 
-    radial-gradient(
-      ellipse 80% 60% at 50% 40%,
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 40%,
       transparent 0%,
       rgba(0, 0, 0, 0.2) 50%,
-      rgba(0, 0, 0, 0.7) 100%
-    ),
-    linear-gradient(
-      to bottom,
+      rgba(0, 0, 0, 0.7) 100%),
+    linear-gradient(to bottom,
       rgba(0, 0, 0, 0.1) 0%,
       rgba(0, 0, 0, 0.3) 50%,
-      rgba(0, 0, 0, 0.85) 100%
-    );
+      rgba(0, 0, 0, 0.85) 100%);
   z-index: 1;
   pointer-events: none;
 }
@@ -622,6 +618,7 @@ a:focus {
   from {
     opacity: 0;
   }
+
   to {
     opacity: var(--entry-opacity, 1);
   }
@@ -643,6 +640,7 @@ a:focus {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 0.35;
   }
@@ -650,16 +648,19 @@ a:focus {
 
 /* Subtle breathing animation for scroll hint */
 .hero-scroll-hint {
-  animation: 
+  animation:
     scrollHintFadeIn 1.2s ease forwards,
     scrollHintPulse 3s ease-in-out infinite;
   animation-delay: 1.6s, 2.8s;
 }
 
 @keyframes scrollHintPulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.35;
   }
+
   50% {
     opacity: 0.5;
   }
@@ -2503,6 +2504,26 @@ textarea {
   background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
   margin: var(--space-2xl) auto;
   opacity: 0.6;
+}
+
+/* Footer */
+.footer {
+  padding: var(--space-xl) var(--space-2xl);
+  text-align: center;
+}
+
+.footer .elegant-separator {
+  margin: 0 auto var(--space-lg);
+  opacity: 0.3;
+  width: 40px;
+}
+
+.footer-text {
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--color-text-muted);
+  opacity: 0.5;
+  font-weight: var(--font-weight-light);
 }
 
 /* Quote styling */
