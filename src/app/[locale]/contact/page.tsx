@@ -53,7 +53,7 @@ export default function ContactPage({ params }: ContactPageProps) {
     };
 
     return (
-        <div className="contact-page">
+        <div className="contact-page page-enter">
             <div className="contact-container">
                 <header className="contact-header">
                     <h1 className="contact-title elegant-underline">{t.contact.title}</h1>

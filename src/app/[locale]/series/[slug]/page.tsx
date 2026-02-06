@@ -33,10 +33,14 @@ export default function SeriesPage({ params }: SeriesPageProps) {
 
     if (!currentSeries) {
         return (
-            <div className="series-view">
-                <div className="loading-screen">
-                    <span className="loading-text">{t.misc.loading}</span>
-                </div>
+            <div className="series-view page-enter">
+                <header className="series-header">
+                    <div className="series-skeleton-link" aria-hidden="true" />
+                    <div className="series-skeleton-title" aria-hidden="true" />
+                    <div className="series-skeleton-description" aria-hidden="true" />
+                </header>
+                <div className="series-skeleton-image" aria-hidden="true" />
+                <span className="visually-hidden">{t.misc.loading}</span>
             </div>
         );
     }
@@ -46,19 +50,25 @@ export default function SeriesPage({ params }: SeriesPageProps) {
     };
 
     return (
-        <div className="series-view">
+        <div className="series-view page-enter">
             <header className="series-header">
                 <Link
                     href={`/${locale}/work`}
-                    className="series-nav-link"
-                    style={{
-                        fontSize: "var(--font-size-sm)",
-                        color: "var(--color-text-muted)",
-                        display: "block",
-                        marginBottom: "var(--space-xl)",
-                    }}
+                    className="series-back-link"
+                    aria-label={t.series.backToWork}
                 >
-                    ← {t.series.backToWork}
+                    <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        aria-hidden="true"
+                    >
+                        <polyline points="15 18 9 12 15 6" />
+                    </svg>
+                    <span>{t.series.backToWork}</span>
                 </Link>
 
                 <h1 className="series-view-title">{currentSeries.title[locale]}</h1>

@@ -101,7 +101,7 @@ export default function CVPage({ params }: CVPageProps) {
     ];
 
     return (
-        <div className="cv-page">
+        <div className="cv-page page-enter">
             <div className="cv-container">
                 {/* Header */}
                 <header className="cv-header">

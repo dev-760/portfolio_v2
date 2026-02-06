@@ -1,4 +1,4 @@
-// Artwork data structure and series definitions
+// Artwork data structure and individual artwork definitions
 
 export interface Artwork {
     id: string;
@@ -7,209 +7,75 @@ export interface Artwork {
         ar: string;
         en: string;
     };
-    series: string;
-    mood: ('shadow' | 'light' | 'passage' | 'night')[];
-    year: number;
-    statement?: {
-        ar: string;
-        en: string;
-    };
-}
-
-export interface Series {
-    slug: string;
-    title: {
-        ar: string;
-        en: string;
-    };
     description?: {
         ar: string;
         en: string;
     };
-    brief?: {
+    quote?: {
         ar: string;
         en: string;
+        author?: {
+            ar: string;
+            en: string;
+        };
     };
-    cover: string;
-    artworks: Artwork[];
+    mood: ('shadow' | 'light' | 'passage' | 'night')[];
+    year: number;
 }
 
 // Define all artworks with their metadata
 export const artworks: Artwork[] = [
     {
-        id: "above-trees",
-        filename: "Above Trees.jpg",
-        title: { ar: "فوق الأشجار", en: "Above Trees" },
-        series: "light-passages",
-        mood: ["light", "passage"],
-        year: 2024,
-    },
-    {
-        id: "blue-passage",
-        filename: "Blue Passage.jpg",
-        title: { ar: "العبور الأزرق", en: "Blue Passage" },
-        series: "light-passages",
-        mood: ["passage", "light"],
-        year: 2024,
-        statement: { ar: "عبور", en: "Passage" },
-    },
-    {
-        id: "burning-sky",
-        filename: "Burning Sky.jpg",
-        title: { ar: "السماء المشتعلة", en: "Burning Sky" },
-        series: "light-passages",
-        mood: ["light"],
-        year: 2024,
-    },
-    {
-        id: "golden-canopy",
-        filename: "Golden Canopy.jpg",
-        title: { ar: "المظلة الذهبية", en: "Golden Canopy" },
-        series: "light-passages",
-        mood: ["light"],
-        year: 2024,
-        statement: { ar: "ضوء", en: "Light" },
-    },
-    {
-        id: "long-corridor",
-        filename: "Long Corridor.jpg",
-        title: { ar: "الممر الطويل", en: "Long Corridor" },
-        series: "urban-silence",
-        mood: ["passage", "shadow"],
-        year: 2024,
-        statement: { ar: "عبور", en: "Passage" },
-    },
-    {
-        id: "moon-over-city",
-        filename: "Moon Over City.jpg",
-        title: { ar: "القمر فوق المدينة", en: "Moon Over City" },
-        series: "night-traces",
-        mood: ["night", "shadow"],
-        year: 2024,
-        statement: { ar: "صمت", en: "Silence" },
-    },
-    {
-        id: "passing-city",
-        filename: "Passing City.jpg",
-        title: { ar: "المدينة العابرة", en: "Passing City" },
-        series: "urban-silence",
+        id: "uncertain-passage",
+        filename: "Uncertain Passage.jpg",
+        title: { ar: "عبور غامض", en: "Uncertain Passage" },
+        quote: {
+            ar: "كل طريقٍ يبدو أطول حين نمشيه وحدنا.",
+            en: "Every road seems longer when we walk it alone.",
+            author: { ar: "ألبير كامو", en: "Albert Camus" }
+        },
         mood: ["passage", "shadow"],
         year: 2024,
     },
     {
-        id: "quiet-hour",
-        filename: "Quiet Hour.jpg",
-        title: { ar: "الساعة الهادئة", en: "Quiet Hour" },
-        series: "urban-silence",
+        id: "look-up",
+        filename: "Look Up.jpg",
+        title: { ar: "انظر للأعلى", en: "Look Up" },
+        quote: {
+            ar: "أرفعُ رأسي… ليس كبرياءً، بل لأن السماء أوسع من الأسئلة.",
+            en: "I lift my head—not out of pride, but because the sky is wider than questions.",
+            author: { ar: "محمود درويش", en: "Mahmoud Darwish" }
+        },
+        mood: ["light"],
+        year: 2024,
+    },
+    {
+        id: "silent-field",
+        filename: "Silent Field.jpg",
+        title: { ar: "حقل صامت", en: "Silent Field" },
+        quote: {
+            ar: "هذا الفراغ ليس خاليًا… إنه فقط لا يشرح نفسه.",
+            en: "This emptiness is not empty; it simply does not explain itself.",
+        },
+        mood: ["shadow", "passage"],
+        year: 2024,
+    },
+    {
+        id: "baroud",
+        filename: "Baroud.jpg",
+        title: { ar: "بارود", en: "Baroud" },
+        quote: {
+            ar: "هنا، لا يُطلَق البارود، بل الزمن.",
+            en: "Here, it is not gunpowder that is fired, but time.",
+        },
         mood: ["shadow", "night"],
         year: 2024,
-        statement: { ar: "صمت", en: "Silence" },
-    },
-    {
-        id: "quiet-passage",
-        filename: "Quiet Passage.jpg",
-        title: { ar: "العبور الهادئ", en: "Quiet Passage" },
-        series: "urban-silence",
-        mood: ["passage", "shadow"],
-        year: 2024,
-        statement: { ar: "عبور", en: "Passage" },
-    },
-    {
-        id: "rain-crossing",
-        filename: "Rain Crossing.jpg",
-        title: { ar: "عبور المطر", en: "Rain Crossing" },
-        series: "urban-silence",
-        mood: ["passage", "shadow"],
-        year: 2024,
-    },
-    {
-        id: "red-stop",
-        filename: "Red Stop.jpg",
-        title: { ar: "التوقف الأحمر", en: "Red Stop" },
-        series: "night-traces",
-        mood: ["night", "shadow"],
-        year: 2024,
-    },
-    {
-        id: "silent-crowd",
-        filename: "Silent Crowd.jpg",
-        title: { ar: "الحشد الصامت", en: "Silent Crowd" },
-        series: "urban-silence",
-        mood: ["shadow", "passage"],
-        year: 2024,
-        statement: { ar: "صمت", en: "Silence" },
-    },
-    {
-        id: "silent-harvest",
-        filename: "Silent Harvest.jpg",
-        title: { ar: "الحصاد الصامت", en: "Silent Harvest" },
-        series: "light-passages",
-        mood: ["light"],
-        year: 2024,
-    },
-    {
-        id: "silent-riders",
-        filename: "Silent Riders.jpg",
-        title: { ar: "الراكبون الصامتون", en: "Silent Riders" },
-        series: "urban-silence",
-        mood: ["shadow", "passage"],
-        year: 2024,
-    },
-];
-
-// Define series with their artworks grouped
-export const series: Series[] = [
-    {
-        slug: "light-passages",
-        title: { ar: "ممرات الضوء", en: "Light Passages" },
-        description: {
-            ar: "لحظات حيث يخترق الضوء الظلام",
-            en: "Moments where light pierces through darkness",
-        },
-        brief: {
-            ar: "استكشاف اللحظات العابرة حين يتسلل الضوء عبر الأشجار والمباني، محولاً المألوف إلى سحري.",
-            en: "Exploring fleeting moments when light filters through trees and structures, transforming the ordinary into the magical.",
-        },
-        cover: "Golden Canopy.jpg",
-        artworks: artworks.filter((a) => a.series === "light-passages"),
-    },
-    {
-        slug: "urban-silence",
-        title: { ar: "صمت المدينة", en: "Urban Silence" },
-        description: {
-            ar: "الهدوء في قلب الضجيج",
-            en: "Quietude in the heart of noise",
-        },
-        brief: {
-            ar: "البحث عن الصمت في الفضاءات الحضرية — الممرات والشوارع والزوايا المنسية حيث تتوقف المدينة عن الصراخ.",
-            en: "Finding silence within urban spaces — corridors, streets, and forgotten corners where the city stops screaming.",
-        },
-        cover: "Long Corridor.jpg",
-        artworks: artworks.filter((a) => a.series === "urban-silence"),
-    },
-    {
-        slug: "night-traces",
-        title: { ar: "آثار الليل", en: "Night Traces" },
-        description: {
-            ar: "ما يتبقى بعد غياب الشمس",
-            en: "What remains after the sun departs",
-        },
-        brief: {
-            ar: "توثيق الآثار التي يتركها الليل — الأضواء الاصطناعية والظلال الممتدة والحضور الإنساني كأثر وليس كموضوع.",
-            en: "Documenting the traces night leaves behind — artificial lights, extended shadows, and human presence as echo rather than subject.",
-        },
-        cover: "Moon Over City.jpg",
-        artworks: artworks.filter((a) => a.series === "night-traces"),
     },
 ];
 
 // Helper functions
 export function getArtworkById(id: string): Artwork | undefined {
     return artworks.find((a) => a.id === id);
-}
-
-export function getSeriesBySlug(slug: string): Series | undefined {
-    return series.find((s) => s.slug === slug);
 }
 
 export function getArtworksByMood(mood: string): Artwork[] {

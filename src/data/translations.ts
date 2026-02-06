@@ -13,7 +13,7 @@ export const translations = {
       artistName: "حسن كراسو",
       title: "فنان بصري",
       enterGallery: "ادخل المعرض",
-      tagline: "العبور · الضوء والظل · الصمت",
+      tagline: "استكشاف السرديات من خلال التصوير",
     },
     // Work page
     work: {
@@ -40,6 +40,8 @@ export const translations = {
       backToSeries: "العودة للسلسلة",
       fullscreen: "ملء الشاشة",
       exitFullscreen: "خروج",
+      gallery: "معرض الأعمال",
+      clickToView: "انقر للعرض",
     },
     // CV page
     cv: {
@@ -87,6 +89,8 @@ export const translations = {
       silence: "صمت",
       light: "ضوء",
       night: "ليل",
+      swipe: "اسحب",
+      useArrows: "استخدم الأسهم للتنقل",
     },
   },
   en: {
@@ -102,7 +106,7 @@ export const translations = {
       artistName: "Hassan Karasu",
       title: "Visual Artist",
       enterGallery: "Enter the gallery",
-      tagline: "Passage · Light and Shadow · Silence",
+      tagline: "exploring narratives through photo",
     },
     // Work page
     work: {
@@ -129,6 +133,8 @@ export const translations = {
       backToSeries: "Back to Series",
       fullscreen: "Fullscreen",
       exitFullscreen: "Exit",
+      gallery: "Artwork gallery",
+      clickToView: "Click to view",
     },
     // CV page
     cv: {
@@ -176,6 +182,8 @@ export const translations = {
       silence: "Silence",
       light: "Light",
       night: "Night",
+      swipe: "Swipe",
+      useArrows: "Use arrow keys to navigate",
     },
   },
 } as const;
@@ -218,6 +226,8 @@ export interface TranslationKeys {
     backToSeries: string;
     fullscreen: string;
     exitFullscreen: string;
+    gallery: string;
+    clickToView: string;
   };
   cv: {
     title: string;
@@ -257,5 +267,7 @@ export interface TranslationKeys {
     silence: string;
     light: string;
     night: string;
+    swipe: string;
+    useArrows: string;
   };
 }

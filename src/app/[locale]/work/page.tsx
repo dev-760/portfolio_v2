@@ -4,9 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Locale, getTranslations } from "@/lib/i18n";
-import { series, getArtworksByMood, Series } from "@/data/artworks";
-
-type MoodFilter = "all" | "shadow" | "light" | "passage" | "night";
+import { artworks, Artwork } from "@/data/artworks";
 
 interface WorkPageProps {
     params: Promise<{ locale: string }>;
@@ -14,8 +12,6 @@ interface WorkPageProps {
 
 export default function WorkPage({ params }: WorkPageProps) {
     const [locale, setLocale] = useState<Locale>("en");
-    const [activeMood, setActiveMood] = useState<MoodFilter>("all");
-    const [filteredSeries, setFilteredSeries] = useState<Series[]>(series);
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
     const [cursorVisible, setCursorVisible] = useState(false);
     const [isHoveringCard, setIsHoveringCard] = useState(false);
@@ -26,18 +22,6 @@ export default function WorkPage({ params }: WorkPageProps) {
             setLocale(locale as Locale);
         });
     }, [params]);
-
-    useEffect(() => {
-        if (activeMood === "all") {
-            setFilteredSeries(series);
-        } else {
-            // Filter series that have artworks matching the mood
-            const filtered = series.filter((s) =>
-                s.artworks.some((a) => a.mood.includes(activeMood))
-            );
-            setFilteredSeries(filtered);
-        }
-    }, [activeMood]);
 
     // Custom cursor for desktop
     useEffect(() => {
@@ -64,16 +48,8 @@ export default function WorkPage({ params }: WorkPageProps) {
 
     const t = getTranslations(locale);
 
-    const moodButtons: { key: MoodFilter; label: string }[] = [
-        { key: "all", label: t.work.filters.all },
-        { key: "shadow", label: t.work.filters.shadow },
-        { key: "light", label: t.work.filters.light },
-        { key: "passage", label: t.work.filters.passage },
-        { key: "night", label: t.work.filters.night },
-    ];
-
     return (
-        <div className="work-page">
+        <div className="work-page page-enter">
             {/* Custom cursor */}
             <div
                 ref={cursorRef}
@@ -86,49 +62,41 @@ export default function WorkPage({ params }: WorkPageProps) {
 
             <header className="work-header container">
                 <h1 className="work-title">{t.work.title}</h1>
-
-                {/* Mood Map Filters */}
-                <div className="mood-filters">
-                    {moodButtons.map((mood) => (
-                        <button
-                            key={mood.key}
-                            className={`mood-button expand-letters ${activeMood === mood.key ? "active" : ""}`}
-                            onClick={() => setActiveMood(mood.key)}
-                        >
-                            {mood.label}
-                        </button>
-                    ))}
-                </div>
-
-                <div className="elegant-separator" style={{ marginTop: "var(--space-3xl)" }} />
+                <div className="elegant-separator" style={{ marginTop: "var(--space-lg)" }} />
             </header>
 
-            {/* Series Grid */}
-            <div className="series-grid">
-                {filteredSeries.map((s, index) => (
+            {/* Artwork Grid */}
+            <div className="artwork-grid">
+                {artworks.map((artwork, index) => (
                     <Link
-                        key={s.slug}
-                        href={`/${locale}/series/${s.slug}`}
-                        className={`series-card stagger-item smooth-scale`}
-                        style={{ animationDelay: `${0.1 + index * 0.1}s` }}
+                        key={artwork.id}
+                        href={`/${locale}/art/${artwork.id}`}
+                        className="artwork-card stagger-item smooth-scale"
+                        style={{ animationDelay: `${0.1 + index * 0.15}s` }}
                         onMouseEnter={() => setIsHoveringCard(true)}
                         onMouseLeave={() => setIsHoveringCard(false)}
                     >
-                        <Image
-                            src={`/artworks/${s.cover}`}
-                            alt={s.title[locale]}
-                            fill
-                            className="series-card-image"
-                            style={{ objectFit: "cover" }}
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                        <div className="series-card-overlay">
-                            <h2 className="series-card-title">{s.title[locale]}</h2>
-                            <p className="series-card-count">
-                                {s.artworks.length} {t.work.seriesCount}
-                            </p>
-                            {s.brief && (
-                                <p className="series-card-brief">{s.brief[locale]}</p>
+                        <div className="artwork-card-image-wrapper">
+                            <Image
+                                src={`/artworks/${artwork.filename}`}
+                                alt={artwork.title[locale]}
+                                fill
+                                className="artwork-card-image"
+                                style={{ objectFit: "cover" }}
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            />
+                        </div>
+                        <div className="artwork-card-content">
+                            <h2 className="artwork-card-title">{artwork.title[locale]}</h2>
+                            {artwork.quote && (
+                                <p className="artwork-card-quote">
+                                    "{artwork.quote[locale]}"
+                                    {artwork.quote.author && (
+                                        <span className="artwork-card-author">
+                                            — {artwork.quote.author[locale]}
+                                        </span>
+                                    )}
+                                </p>
                             )}
                         </div>
                     </Link>
