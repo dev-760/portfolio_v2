@@ -87,6 +87,62 @@ export function getRandomArtwork(): Artwork {
     return artworks[Math.floor(Math.random() * artworks.length)];
 }
 
+// Series interface and data
+export interface Series {
+    slug: string;
+    title: {
+        ar: string;
+        en: string;
+    };
+    description?: {
+        ar: string;
+        en: string;
+    };
+    coverImage: string;
+    artworks: Artwork[];
+}
+
+export const series: Series[] = [
+    {
+        slug: "passages",
+        title: { ar: "عبور", en: "Passages" },
+        description: {
+            ar: "استكشاف الفضاءات الانتقالية والعتبات",
+            en: "Exploring transitional spaces and thresholds"
+        },
+        coverImage: "/artworks/Uncertain Passage.jpg",
+        artworks: artworks.filter(a => a.mood.includes("passage")),
+    },
+    {
+        slug: "shadows",
+        title: { ar: "ظلال", en: "Shadows" },
+        description: {
+            ar: "دراسات في الضوء والغياب",
+            en: "Studies in light and absence"
+        },
+        coverImage: "/artworks/Silent Field.jpg",
+        artworks: artworks.filter(a => a.mood.includes("shadow")),
+    },
+    {
+        slug: "night",
+        title: { ar: "ليل", en: "Night" },
+        description: {
+            ar: "لحظات من الصمت الليلي",
+            en: "Moments of nocturnal silence"
+        },
+        coverImage: "/artworks/Baroud.jpg",
+        artworks: artworks.filter(a => a.mood.includes("night")),
+    },
+];
+
+export function getSeriesBySlug(slug: string): Series | undefined {
+    return series.find((s) => s.slug === slug);
+}
+
+export function getAllSeries(): Series[] {
+    return series;
+}
+
 // CV Data - Updated with correct information
 export const cvData = {
     email: "me@hassankarasu.art",
