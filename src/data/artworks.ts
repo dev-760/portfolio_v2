@@ -23,6 +23,28 @@ export interface Artwork {
     year: number;
 }
 
+// ============================================
+// HOW TO ADD A NEW PHOTO:
+// ============================================
+// 1. Put your image in: public/artworks/YourImageName.jpg
+// 2. Copy the template below and paste it in the artworks array
+// 3. Fill in the details
+//
+// TEMPLATE (copy this):
+// {
+//     id: "your-photo-id",           // unique id, lowercase with dashes
+//     filename: "Your Photo.jpg",     // exact filename in public/artworks/
+//     title: { ar: "العنوان", en: "Title" },
+//     quote: {                        // optional - remove if not needed
+//         ar: "اقتباس بالعربية",
+//         en: "Quote in English",
+//         author: { ar: "الكاتب", en: "Author" }  // optional
+//     },
+//     mood: ["shadow"],               // options: "shadow", "light", "passage", "night"
+//     year: 2024,
+// },
+// ============================================
+
 // Define all artworks with their metadata
 export const artworks: Artwork[] = [
     {

@@ -82,22 +82,6 @@ export default function CVPage({ params }: CVPageProps) {
                 </ul>
             ),
         },
-        {
-            id: "education",
-            title: t.cv.education,
-            content: (
-                <ul className="cv-list">
-                    {cvData.education.map((edu, index) => (
-                        <li key={index} className="cv-list-item">
-                            <h4 className="cv-list-title">{edu.title[locale]}</h4>
-                            <p className="cv-list-meta">
-                                {edu.institution[locale]} · {edu.year} {edu.status[locale]}
-                            </p>
-                        </li>
-                    ))}
-                </ul>
-            ),
-        },
     ];
 
     return (

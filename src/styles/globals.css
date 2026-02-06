@@ -552,6 +552,13 @@ a:focus {
   cursor: default;
 }
 
+/* Hide footer and navigation on entry page */
+.hero-entry~.footer,
+body:has(.hero-entry) .footer,
+body:has(.hero-entry) .navigation {
+  display: none;
+}
+
 /* Dark gradient overlay - lighter in center, darker at bottom */
 .hero-gradient-overlay {
   position: absolute;
