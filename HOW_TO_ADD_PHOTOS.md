@@ -96,17 +96,3 @@ You can use multiple moods: `["shadow", "night"]`
 2. **filename** must exactly match your file name in `public/artworks/`
 3. **mood** must be an array with at least one option
 4. Don't forget the comma `,` after each photo entry!
-
----
-
-## After Adding
-
-1. Save the file
-2. Commit and push to GitHub
-3. Vercel will automatically deploy
-
-```bash
-git add .
-git commit -m "Add new photo"
-git push
-```
