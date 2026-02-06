@@ -11,9 +11,8 @@ export const translations = {
     // Home page
     home: {
       artistName: "حسن كراسو",
-      title: "فنان بصري",
-      enterGallery: "ادخل المعرض",
-      tagline: "استكشاف السرديات من خلال التصوير",
+      title: "ملاحظة · عبور · غياب",
+      scrollToEnter: "مرر للدخول",
     },
     // Work page
     work: {
@@ -104,9 +103,8 @@ export const translations = {
     // Home page
     home: {
       artistName: "Hassan Karasu",
-      title: "Visual Artist",
-      enterGallery: "Enter the gallery",
-      tagline: "exploring narratives through photo",
+      title: "Observation · Passage · Absence",
+      scrollToEnter: "Scroll to enter",
     },
     // Work page
     work: {
@@ -201,8 +199,7 @@ export interface TranslationKeys {
   home: {
     artistName: string;
     title: string;
-    enterGallery: string;
-    tagline: string;
+    scrollToEnter: string;
   };
   work: {
     title: string;
