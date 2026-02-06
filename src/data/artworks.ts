@@ -168,7 +168,7 @@ export function getAllSeries(): Series[] {
 // CV Data - Updated with correct information
 export const cvData = {
     email: "me@hassankarasu.art",
-    linkedin: "https://linkedin.com/in/hassankarasu",
+    instagram: "https://www.instagram.com/v6.i6_",
 
     experience: [
         {

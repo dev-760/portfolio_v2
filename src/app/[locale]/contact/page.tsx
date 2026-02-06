@@ -76,17 +76,17 @@ export default function ContactPage({ params }: ContactPageProps) {
                         </button>
                     </div>
 
-                    {/* LinkedIn */}
+                    {/* Instagram */}
                     <a
-                        href={cvData.linkedin}
+                        href={cvData.instagram}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="contact-link-item stagger-item gradient-border"
                         style={{ textDecoration: "none", animationDelay: "0.2s" }}
                     >
                         <div>
-                            <p className="contact-link-label">LinkedIn</p>
-                            <p className="contact-link-value">Hassan Karasu</p>
+                            <p className="contact-link-label">Instagram</p>
+                            <p className="contact-link-value">@v6.i6_</p>
                         </div>
                         <svg
                             width="16"

@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import SpotlightCursor from "@/components/SpotlightCursor";
@@ -46,6 +48,8 @@ export default function RootLayout({
       <body>
         <SpotlightCursor />
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
