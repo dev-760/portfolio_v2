@@ -81,9 +81,9 @@ export default function PassageMode({
                         loading="lazy"
                         style={{ objectFit: "contain", width: "100%", height: "auto" }}
                     />
-                    {artwork.statement && (
+                    {artwork.quote && (
                         <span className="passage-word">
-                            {artwork.statement[locale]}
+                            {artwork.quote[locale]}
                         </span>
                     )}
                 </div>
